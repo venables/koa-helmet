@@ -22,12 +22,13 @@
     "underscore": "1.6.x"
   },
   "devDependencies": {
-    "connect": "2.11.x",
+    "co-mocha": "0.0.2",
+    "koa": "0.0.x",
     "mocha": "1.14.x",
     "supertest": "0.8.x"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --harmony"
   },
   "main": "lib/index"
 }
