@@ -49,7 +49,7 @@ app.use(helmet.defaults());
 Don't want all the defaults?
 
 ```javascript
-helmet.defaults(app, { xframe: false });
+helmet.defaults({ xframe: false });
 app.use(helmet.xframe('sameorigin'));
 ```
 
@@ -187,10 +187,4 @@ This middleware will remove the `X-Powered-By` header if it is set.
 
 ```javascript
 app.use(helmet.hidePoweredBy());
-```
-
-Note: if you're using Express, you can skip Helmet's middleware if you want:
-
-```javascript
-app.disable('x-powered-by');
 ```

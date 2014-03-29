@@ -18,6 +18,7 @@
     "node": ">= 0.11.9"
   },
   "dependencies": {
+    "koa-compose": "^2.2.0",
     "platform": "1.0.x",
     "underscore": "1.6.x"
   },
