@@ -4,7 +4,9 @@
     "loopfunc": true,
     "curly": false,
     "evil": true,
-    "white": true,
+    "esnext": true,
+    "noyield": true,
+    "indent": 2,
     "undef": true,
     "node": true,
     "predef": [
