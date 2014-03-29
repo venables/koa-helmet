@@ -1,31 +1,32 @@
 var helmet = require('../');
 
-var connect = require('connect');
+var koa = require('koa');
 var request = require('supertest');
 var assert = require('assert');
 
-describe('hidePoweredBy', function () {
+describe('hidePoweredBy', function() {
+  var app;
 
-    var app;
-    beforeEach(function () {
-        app = connect();
-        app.use(function (req, res, next) {
-            res.setHeader('X-Powered-By', 'Computers');
-            next();
-        });
-        app.use(helmet.hidePoweredBy());
-        app.use(function (req, res) {
-            res.end('Hello world!');
-        });
+  beforeEach(function() {
+    app = koa();
+    app.use(function *(next) {
+      this.set('X-Powered-By', 'Computers');
+      yield next;
     });
+    app.use(helmet.hidePoweredBy());
+    app.use(function *() {
+      this.body = 'Hello world!';
+    });
+  });
 
-    it('removes the X-Powered-By header', function (done) {
-        request(app).get('/')
-        .end(function (err, res) {
-            if (err) return done(err);
-            assert.equal(res.header['x-powered-by'], undefined);
-            done();
-        });
-    });
+  it('removes the X-Powered-By header', function(done) {
+    request(app.listen())
+      .get('/')
+      .end(function (err, res) {
+        if (err) return done(err);
+        assert.equal(res.header['x-powered-by'], undefined);
+        done();
+      });
+  });
 
 });
