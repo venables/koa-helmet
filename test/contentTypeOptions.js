@@ -1,22 +1,22 @@
 var helmet = require('../');
 
-var connect = require('connect');
+var koa = require('koa');
 var request = require('supertest');
 
-describe('contentTypeOptions', function () {
+describe('contentTypeOptions', function() {
+  var app;
 
-    var app;
-    beforeEach(function () {
-        app = connect();
-        app.use(helmet.contentTypeOptions());
-        app.use(function (req, res) {
-            res.end('Hello world!');
-        });
+  beforeEach(function() {
+    app = koa();
+    app.use(helmet.contentTypeOptions());
+    app.use(function *() {
+      this.body = 'Hello world!';
     });
+  });
 
-    it('sets header properly', function (done) {
-        request(app).get('/')
-        .expect('X-Content-Type-Options', 'nosniff', done);
-    });
-
+  it('sets header properly', function(done) {
+    request(app.listen())
+      .get('/')
+      .expect('X-Content-Type-Options', 'nosniff', done);
+  });
 });
