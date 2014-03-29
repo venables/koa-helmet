@@ -1,24 +1,21 @@
 {
-  "name": "helmet",
-  "author": "Adam Baldwin <baldwin@andyet.net> (http://andyet.net/team/baldwin)",
-  "contributors": [
-    "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)"
-  ],
-  "description": "Security header middleware collection for express",
-  "version": "0.2.0",
+  "name": "koa-helmet",
+  "author": "Matt Venables <mattvenables@gmail.com>",
+  "description": "Security header middleware collection for koa",
+  "version": "0.0.1",
   "keywords": [
     "security",
     "headers",
-    "express",
+    "koa",
     "x-frame-options",
     "csp",
     "hsts"
   ],
   "repository": {
-    "url": "git://github.com/evilpacket/helmet.git"
+    "url": "git://github.com/venables/koa-helmet.git"
   },
   "engines": {
-    "node": ">= 0.6.6"
+    "node": ">= 0.11.9"
   },
   "dependencies": {
     "platform": "1.0.x",
