@@ -16,7 +16,6 @@ koa-helmet includes the following middleware:
 - `ienoopen` (X-Download-Options for IE8+)
 - `contentTypeOptions` (X-Content-Type-Options)
 - `cacheControl` (Cache-Control)
-- `hidePoweredBy` (remove X-Powered-By)
 
 Installation
 ------------
@@ -178,13 +177,4 @@ The following example sets the `Cache-Control` header to `no-store, no-cache`. T
 
 ```javascript
 app.use(helmet.cacheControl());
-```
-
-Hide X-Powered-By
------------------
-
-This middleware will remove the `X-Powered-By` header if it is set.
-
-```javascript
-app.use(helmet.hidePoweredBy());
 ```
