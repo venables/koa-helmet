@@ -2,7 +2,7 @@
   "name": "koa-helmet",
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "security",
     "headers",
@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "koa-compose": "^2.2.0",
-    "platform": "1.0.x",
-    "underscore": "1.6.x"
+    "platform": "1.3.x",
+    "underscore": "1.7.x"
   },
   "devDependencies": {
-    "co-mocha": "0.0.2",
-    "koa": "0.0.x",
-    "mocha": "1.14.x",
-    "supertest": "0.8.x"
+    "co-mocha": "1.1.0",
+    "koa": "0.16.x",
+    "mocha": "2.1.x",
+    "supertest": "0.15.x"
   },
   "scripts": {
     "test": "mocha --harmony"

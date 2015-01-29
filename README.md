@@ -3,7 +3,7 @@ koa-helmet
 
 [![Dependency Status](https://david-dm.org/venables/koa-helmet.png)](https://david-dm.org/venables/koa-helmet)
 
-koa-helmet is a fork of [Helmet](https://github.com/evilpacket/helmet) which has been updated to work with [koa](https://github.com/koajs/koa).
+koa-helmet is a fork of [Helmet](https://github.com/helmetjs/helmet) which has been updated to work with [koa](https://github.com/koajs/koa).
 
 koa-helmet is a series of middleware for koa apps that implement various security headers to make your app more secure.
 
