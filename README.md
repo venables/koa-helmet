@@ -10,6 +10,7 @@ koa-helmet is a series of middleware for koa apps that implement various securit
 koa-helmet includes the following middleware:
 
 - `csp` (Content Security Policy)
+- `hpkp` (HTTP Public Key Pinning)
 - `hsts` (HTTP Strict Transport Security)
 - `xframe` (X-Frame-Options)
 - `iexss` (X-XSS-Protection for IE8+)
@@ -83,6 +84,45 @@ There are a lot of inconsistencies in how browsers implement CSP. Helmet sniffs 
 the browser and sets the appropriate header and value for that browser. If no user-agent is found,
 it will set _all_ the headers with the 1.0 spec.
 
+HTTP Public Key Pining
+-------------------------------
+
+This middleware adds the `Public-Key-Pins` header to the response. [See the spec.](https://tools.ietf.org/html/draft-ietf-websec-key-pinning-21#section-2.3.3)
+
+To use the default header of `Public-Key-Pins: max-age=5184000` (about 2 months), pass the base64-encoded **Subject Public Key Information** (SPKI) fingerprint via the `pins` option:
+
+```javascript
+app.use(helmet.hpkp({ sha256: ['base64==']}));
+```
+
+Currently, only `sha256` is supported as the hashing algorithm by HPKP. This may change in the future.
+
+Optionally, you may set a custom `maxAge`:
+
+```javascript
+app.use(helmet.hpkp({ maxAge: 1234567 }));
+```
+
+Note that the max age is in _seconds_, not milliseconds (as is typical in JavaScript).
+
+You may also enable the `includeSubdomains` flag:
+
+```javascript
+app.use(helmet.hpkp({ includeSubdomains: true }));
+```
+
+Enable the report of pin validation failures:
+
+```javascript
+app.use(helmet.hpkp({ reportUri: 'https://example.com/pkp-report' }));
+```
+
+Or enable the "report only" mode:
+
+```javascript
+app.use(helmet.hpkp({ reportOnly: true, reportUri: 'https://example.com/pkp-report' }));
+```
+
 HTTP Strict Transport Security
 -------------------------------
 
@@ -144,7 +184,7 @@ app.use(helmet.iexss());
 
 This sets the `X-XSS-Protection` header. On modern browsers, it will set the value
 to `1; mode=block`. On old versions of Internet Explorer, this creates a vulnerability
-(see [here](http://hackademix.net/2009/11/21/ies-xss-filter-creates-xss-vulnerabilities/) and 
+(see [here](http://hackademix.net/2009/11/21/ies-xss-filter-creates-xss-vulnerabilities/) and
 [here](http://technet.microsoft.com/en-us/security/bulletin/MS10-002)), and so the header is set
 to `0`. To force the header on all versions of IE, add the option:
 
