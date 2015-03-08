@@ -16,6 +16,7 @@ koa-helmet includes the following middleware:
 - `ienoopen` (X-Download-Options for IE8+)
 - `contentTypeOptions` (X-Content-Type-Options)
 - `cacheControl` (Cache-Control)
+- `permittedCrossDomainPolicies` (X-Permitted-Cross-Domain-Policies)
 
 Installation
 ------------
@@ -177,4 +178,13 @@ The following example sets the `Cache-Control` header to `no-store, no-cache`. T
 
 ```javascript
 app.use(helmet.cacheControl());
+```
+
+X-Permitted-Cross-Domain-Policies
+---------------------------------
+
+Sets the `X-Permitted-Cross-Domain-Policies` header. Restricts Adobe Flash Player and Adobe Reader's access to data. For more, see [this Adobe blog post](https://www.adobe.com/devnet/adobe-media-server/articles/cross-domain-xml-for-streaming.html).
+
+```javascript
+app.use(helmet.permittedCrossDomainPolicies());
 ```
