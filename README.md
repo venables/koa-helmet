@@ -138,10 +138,18 @@ app.use(helmet.hsts());
 To adjust other values for `maxAge` and to include subdomains:
 
 ```javascript
-app.use(helmet.hsts(1234567, true));
+app.use(helmet.hsts(1234567, true, false));
 ```
 
 Note that the max age is in _seconds_, not milliseconds (as is typical in JavaScript).
+
+To enable the `preload` flag in the HSTS header with a custom `maxAge` and `includeSubdomains` set as follows:
+
+```javascript
+app.use(helmet.hsts(1234567, true, true));
+```
+
+Note the `preload` flag is required for domain includision in Chrome's HSTS (preload)[https://hstspreload.appspot.com/] list. This is a list of sites that are hardcoded into Chrome as being HTTPS only.
 
 X-Frame-Options
 ---------------
