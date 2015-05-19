@@ -2,7 +2,7 @@
   "name": "koa-helmet",
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "keywords": [
     "security",
     "headers",
