@@ -129,7 +129,7 @@ HTTP Strict Transport Security
 
 This middleware adds the `Strict-Transport-Security` header to the response. [See the spec.](http://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-04)
 
-To use the default header of `Strict-Transport-Security: maxAge=15768000` (about 6 months):
+To use the default header of `Strict-Transport-Security: max-age=15768000` (about 6 months):
 
 ```javascript
 app.use(helmet.hsts());
