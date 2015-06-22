@@ -93,7 +93,9 @@ This middleware adds the `Public-Key-Pins` header to the response. [See the spec
 To use the default header of `Public-Key-Pins: max-age=5184000` (about 2 months), pass the base64-encoded **Subject Public Key Information** (SPKI) fingerprint via the `pins` option:
 
 ```javascript
-app.use(helmet.hpkp({ sha256: ['base64==']}));
+app.use(helmet.hpkp({
+    pins: { sha256: ['base64=='] } 
+}));
 ```
 
 Currently, only `sha256` is supported as the hashing algorithm by HPKP. This may change in the future.
