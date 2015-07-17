@@ -22,11 +22,13 @@
     "helmet": "^0.10.0"
   },
   "devDependencies": {
+    "koa": "^0.21.0",
     "mocha": "^2.2.5",
+    "supertest": "^1.0.1",
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test"
   },
   "main": "lib/index"
 }
