@@ -5,11 +5,13 @@ koa-helmet
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
 
+
 Installation
 ------------
 
+```
 npm install koa-helmet --save
-
+```
 
 Usage
 -----
@@ -32,3 +34,8 @@ app.use(function *(){
 
 app.listen(4000);
 ```
+
+Versioning
+----------
+
+koa-helmet pins to helmet's major version (koa-helmet 0.x locks to helmet 0.x).
