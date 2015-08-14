@@ -2,6 +2,7 @@ koa-helmet
 ==========
 
 [![Dependency Status](https://david-dm.org/venables/koa-helmet.png)](https://david-dm.org/venables/koa-helmet)
+[![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
 
