@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var _ = require('lodash');
 var helmet = require('helmet');
 var koaHelmet = require('../lib');
 var assert = require('assert');
