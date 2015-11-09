@@ -3,11 +3,15 @@ koa-helmet
 
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 [![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg?style=flat-square)](https://david-dm.org/venables/koa-helmet)
-[![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
+[![Build Status](https://img.shields.io/travis/venables/koa-helmet/koa-1.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
 
+NOTE
+----
+
+This branch supports Koa 0.x and 1.x.  For Koa 2 support (using Promises instead of Generators), please use the [master](https://github.com/venables/koa-helmet) branch.
 
 Installation
 ------------
