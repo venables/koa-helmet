@@ -30,7 +30,7 @@ describe('integration test', function() {
         .get('/')
         .set('User-Agent', '')
         // noCache
-        .expect('Cache-Control', 'private, no-store, no-cache, must-revalidate, proxy-revalidate')
+        .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
         .expect('Pragma', 'no-cache')
         .expect('Expires', '0')
 
