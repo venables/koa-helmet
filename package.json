@@ -3,7 +3,7 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
   "license": "MIT",
-  "version": "0.3.0",
+  "version": "0.4.0-alpha",
   "keywords": [
     "security",
     "headers",
@@ -16,14 +16,14 @@
     "url": "git://github.com/venables/koa-helmet.git"
   },
   "engines": {
-    "node": ">= 0.11.16",
-    "iojs": ">= 1.0.0"
+    "node": ">= 4.0.0"
   },
   "dependencies": {
+    "bluebird": "^3.0.5",
+    "koa": ">= 2.0.0-alpha.3",
     "helmet": "^0.14.0"
   },
   "devDependencies": {
-    "koa": "^1.1.0",
     "mocha": "^2.3.3",
     "supertest": "^1.1.0",
     "underscore": "^1.8.3"

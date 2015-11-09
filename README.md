@@ -8,6 +8,11 @@ koa-helmet
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
 
+NOTE
+----
+
+This branch is for koa v2, which uses Promises instead of Generator functions.
+
 
 Installation
 ------------
@@ -26,13 +31,14 @@ Example
 -------
 
 ```js
-var koa = require('koa');
+var Koa = require('koa');
 var helmet = require('koa-helmet');
-var app = koa();
+var app = new Koa();
 
 app.use(helmet());
-app.use(function *(){
-  this.body = 'Hello World';
+
+app.use((ctx) => {
+  ctx.body = 'Hello World';
 });
 
 app.listen(4000);
