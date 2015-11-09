@@ -19,7 +19,6 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
-    "bluebird": "^3.0.5",
     "helmet": "^0.14.0"
   },
   "devDependencies": {
