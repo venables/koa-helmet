@@ -3,7 +3,7 @@ koa-helmet
 
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 [![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg?style=flat-square)](https://david-dm.org/venables/koa-helmet)
-[![Build Status](https://img.shields.io/travis/venables/koa-helmet/koa-2.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
+[![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
@@ -11,7 +11,7 @@ koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work
 NOTE
 ----
 
-This branch is for koa v2, which uses Promises instead of Generator functions.
+This branch is for koa v2, which uses Promises instead of Generator functions.  For koa 0.x and 1.x support, see the [koa-1](https://github.com/venables/koa-helmet/tree/koa-1) branch.
 
 
 Installation
@@ -43,8 +43,3 @@ app.use((ctx) => {
 
 app.listen(4000);
 ```
-
-Versioning
-----------
-
-koa-helmet pins to helmet's major version (koa-helmet 0.x locks to helmet 0.x).
