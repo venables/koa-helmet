@@ -13,12 +13,16 @@ describe('integration', function() {
 
   describe('default options', function() {
     it('works with the default helmet call', function(done) {
-      app.use(helmet());
       app.use((ctx, next) => {
-        next().then(() => {
+        ctx.status = 201;
+        return next();
+      });
+      app.use((ctx, next) => {
+        return next().then(() => {
           ctx.body = 'Hello world!';
         });
       });
+      app.use(helmet());
 
       request(app.listen())
         .get('/')
@@ -27,12 +31,17 @@ describe('integration', function() {
         .expect('X-Frame-Options', 'SAMEORIGIN')
         .expect('X-Download-Options', 'noopen')
         .expect('X-XSS-Protection', '1; mode=block')
-        .expect(200, 'Hello world!', done);
+        .expect(201, 'Hello world!', done);
     });
   });
 
   describe('individual calls', function() {
     it('sets the headers properly', function(done) {
+      app.use((ctx, next) => {
+        return next().then(() => {
+          ctx.status = 201;
+        });
+      });
       app.use(helmet.noCache());
       app.use(helmet.xssFilter());
       app.use(helmet.frameguard('deny'));
@@ -67,7 +76,7 @@ describe('integration', function() {
 
         // publicKeyPins
         .expect('Public-Key-Pins-Report-Only', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1; includeSubdomains; report-uri="http://example.com"')
-        .expect(200, 'Hello world!', done);
+        .expect(201, 'Hello world!', done);
     });
   });
 
