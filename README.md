@@ -14,6 +14,13 @@ NOTE
 This branch is for koa v2, which uses Promises instead of Generator functions.  For koa 0.x and 1.x support, see the [koa-1](https://github.com/venables/koa-helmet/tree/koa-1) branch.
 
 
+Versioning
+----------
+
+* koa-helmet 1.x (koa-1 branch) supports koa 0.x and koa 1.x
+* koa-helmet 2.x (master branch) supports koa 2.x
+
+
 Installation
 ------------
 
