@@ -20,11 +20,11 @@
     "iojs": ">= 1.0.0"
   },
   "dependencies": {
-    "helmet": "^0.14.0"
+    "helmet": "^1.0.1"
   },
   "devDependencies": {
     "koa": "^1.1.0",
-    "mocha": "^2.3.3",
+    "mocha": "^2.3.4",
     "supertest": "^1.1.0",
     "underscore": "^1.8.3"
   },

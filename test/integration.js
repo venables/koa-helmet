@@ -44,7 +44,7 @@ describe('integration test', function() {
         .expect('X-Content-Type-Options', 'nosniff')
 
         // publicKeyPins
-        .expect('Public-Key-Pins-Report-Only', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1; includeSubdomains; report-uri="http://example.com"', done);
+        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1; includeSubdomains; report-uri="http://example.com"', done);
   });
 
 });
