@@ -41,8 +41,3 @@ app.use(function *(){
 
 app.listen(4000);
 ```
-
-Versioning
-----------
-
-koa-helmet pins to helmet's major version (koa-helmet 0.x locks to helmet 0.x).
