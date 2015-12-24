@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "koa": ">= 2.0.0-alpha.3",
-    "mocha": "^2.3.3",
+    "mocha": "^2.3.4",
     "supertest": "^1.1.0",
     "underscore": "^1.8.3"
   },
