@@ -3,7 +3,7 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
   "license": "MIT",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "keywords": [
     "security",
     "headers",
