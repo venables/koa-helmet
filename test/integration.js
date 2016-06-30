@@ -44,9 +44,9 @@ describe('integration', function() {
       });
       app.use(helmet.noCache());
       app.use(helmet.xssFilter());
-      app.use(helmet.frameguard('deny'));
+      app.use(helmet.frameguard({ action: 'deny' }));
       app.use(helmet.noSniff());
-      app.use(helmet.publicKeyPins({
+      app.use(helmet.hpkp({
         maxAge: 1000,
         sha256s: ['AbCdEf123=', 'ZyXwVu456='],
         includeSubdomains: true,

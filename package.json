@@ -19,7 +19,7 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
-    "helmet": "^1.0.1"
+    "helmet": "^2.1.1"
   },
   "devDependencies": {
     "koa": ">= 2.0.0-alpha.3",
