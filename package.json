@@ -20,7 +20,7 @@
     "iojs": ">= 1.0.0"
   },
   "dependencies": {
-    "helmet": "^1.0.1"
+    "helmet": "^3.0.0"
   },
   "devDependencies": {
     "koa": "^1.1.0",
