@@ -3,48 +3,84 @@ var helmet = require('../');
 var koa = require('koa');
 var request = require('supertest');
 
-describe('integration test', function() {
+describe('integration test', function () {
   var app;
 
-  beforeEach(function() {
+  beforeEach(function () {
     app = koa();
+  })
 
-    app.use(helmet.noCache());
-    app.use(helmet.xssFilter());
-    app.use(helmet.frameguard('deny'));
-    app.use(helmet.noSniff());
-    app.use(helmet.publicKeyPins({
-      maxAge: 1000,
-      sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-      includeSubdomains: true,
-      reportUri: 'http://example.com'
-    }));
+  describe('defaults', function () {
+    beforeEach(function () {
+      app.use(helmet());
 
-    app.use(function *() {
-      this.body = 'Hello world!';
+      app.use(function* () {
+        this.body = 'Hello world!';
+      });
+    });
+
+    it('sets the headers properly', function (done) {
+      request(app.listen())
+        .get('/')
+        // dnsPrefetchControl
+        .expect('X-DNS-Prefetch-Control', 'off')
+        // frameguard
+        .expect('X-Frame-Options', 'SAMEORIGIN')
+        // hsts: Not enabled in HTTP
+        // .expect('Strict-Transport-Security', 'max-age=5184000; includeSubDomains')
+        // ieNoOpen
+        .expect('X-Download-Options', 'noopen')
+        // noSniff
+        .expect('X-Content-Type-Options', 'nosniff')
+        // xssFilter
+        .expect('X-XSS-Protection', '1; mode=block')
+        .expect(200, done);
     });
   });
 
-  it('sets the headers properly', function(done) {
+  describe('individual middleware', function () {
+    beforeEach(function () {
+      app.use(helmet.hsts({
+        force: true
+      }));
+      app.use(helmet.noCache());
+      app.use(helmet.xssFilter());
+      app.use(helmet.frameguard('deny'));
+      app.use(helmet.noSniff());
+      app.use(helmet.hpkp({
+        maxAge: 1000,
+        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
+        includeSubdomains: true,
+        reportUri: 'http://example.com'
+      }));
+
+      app.use(function* () {
+        this.body = 'Hello world!';
+      });
+    });
+
+    it('sets the headers properly', function (done) {
       request(app.listen())
         .get('/')
-        .set('User-Agent', '')
         // noCache
         .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
         .expect('Pragma', 'no-cache')
         .expect('Expires', '0')
 
+        // hsts
+        .expect('Strict-Transport-Security', 'max-age=15552000; includeSubDomains')
+
         // xssFilter
         .expect('X-XSS-Protection', '1; mode=block')
 
         // frameguard
-        .expect('X-Frame-Options', 'DENY')
+        .expect('X-Frame-Options', 'SAMEORIGIN')
 
         // noSniff
         .expect('X-Content-Type-Options', 'nosniff')
 
-        // publicKeyPins
-        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1; includeSubdomains; report-uri="http://example.com"', done);
+        // hpkp
+        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"', done);
+    });
   });
-
 });
