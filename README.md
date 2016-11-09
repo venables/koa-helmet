@@ -55,7 +55,7 @@ Note:
 -----
 
 In order to work well with the helmet HSTS module, koa-helmet will augment
-`this.request` to include a `secure` boolean to determine if the request
+`this.req` to include a `secure` boolean to determine if the request
 is over HTTPS.
 
 Example
