@@ -51,6 +51,13 @@ Helmet offers 11 security middleware functions:
 
 You can see more in [the documentation](https://helmetjs.github.io/docs/).
 
+Note:
+-----
+
+In order to work well with the helmet HSTS module, koa-helmet will augment
+`this.request` to include a `secure` boolean to determine if the request
+is over HTTPS.
+
 Example
 -------
 

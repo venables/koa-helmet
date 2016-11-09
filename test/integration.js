@@ -26,6 +26,8 @@ describe('integration test', function () {
         .expect('X-DNS-Prefetch-Control', 'off')
         // frameguard
         .expect('X-Frame-Options', 'SAMEORIGIN')
+        // hsts: Not enabled in HTTP
+        // .expect('Strict-Transport-Security', 'max-age=5184000; includeSubDomains')
         // ieNoOpen
         .expect('X-Download-Options', 'noopen')
         // noSniff
@@ -38,6 +40,9 @@ describe('integration test', function () {
 
   describe('individual middleware', function () {
     beforeEach(function () {
+      app.use(helmet.hsts({
+        force: true
+      }));
       app.use(helmet.noCache());
       app.use(helmet.xssFilter());
       app.use(helmet.frameguard('deny'));
@@ -61,6 +66,9 @@ describe('integration test', function () {
         .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
         .expect('Pragma', 'no-cache')
         .expect('Expires', '0')
+
+        // hsts
+        .expect('Strict-Transport-Security', 'max-age=15552000; includeSubDomains')
 
         // xssFilter
         .expect('X-XSS-Protection', '1; mode=block')
