@@ -3,6 +3,7 @@ koa-helmet
 
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 [![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg?style=flat-square)](https://david-dm.org/venables/koa-helmet)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 
@@ -20,38 +21,46 @@ Usage
 
 Usage is the same as [helmet](https://github.com/helmetjs/helmet)
 
-Helmet offers 10 security middleware functions:
+Helmet offers 11 security middleware functions:
 
-- [contentSecurityPolicy](https://github.com/helmetjs/csp) for setting Content Security Policy
-- [dnsPrefetchControl](https://github.com/helmetjs/dns-prefetch-control) controls browser DNS prefetching
-- [frameguard](https://github.com/helmetjs/frameguard) to prevent clickjacking
-- [hidePoweredBy](https://github.com/helmetjs/hide-powered-by) to remove the X-Powered-By header
-- [hpkp](https://github.com/helmetjs/hpkp) for HTTP Public Key Pinning
-- [hsts](https://github.com/helmetjs/hsts) for HTTP Strict Transport Security
-- [ieNoOpen](https://github.com/helmetjs/ienoopen) sets X-Download-Options for IE8+
-- [noCache](https://github.com/helmetjs/nocache) to disable client-side caching
-- [noSniff](https://github.com/helmetjs/dont-sniff-mimetype) to keep clients from sniffing the MIME type
-- [xssFilter](https://github.com/helmetjs/x-xss-protection) adds some small XSS protections
+| Module | Default? |
+|---|---|
+| [contentSecurityPolicy](https://helmetjs.github.io/docs/csp/) for setting Content Security Policy |  |
+| [dnsPrefetchControl](https://helmetjs.github.io/docs/dns-prefetch-control) controls browser DNS prefetching | ✓ |
+| [frameguard](https://helmetjs.github.io/docs/frameguard/) to prevent clickjacking | ✓ |
+| [hidePoweredBy](https://helmetjs.github.io/docs/hide-powered-by) to remove the X-Powered-By header | ✓ |
+| [hpkp](https://helmetjs.github.io/docs/hpkp/) for HTTP Public Key Pinning |  |
+| [hsts](https://helmetjs.github.io/docs/hsts/) for HTTP Strict Transport Security | ✓ |
+| [ieNoOpen](https://helmetjs.github.io/docs/ienoopen) sets X-Download-Options for IE8+ | ✓ |
+| [noCache](https://helmetjs.github.io/docs/nocache/) to disable client-side caching |  |
+| [noSniff](https://helmetjs.github.io/docs/dont-sniff-mimetype) to keep clients from sniffing the MIME type | ✓ |
+| [referrerPolicy](https://helmetjs.github.io/docs/referrer-policy) to hide the Referer header |  |
+| [xssFilter](https://helmetjs.github.io/docs/xss-filter) adds some small XSS protections | ✓ |
 
-Running `app.use(helmet())` will include 7 of the 10, leaving out `contentSecurityPolicy`, `hpkp`, and `noCache`. You can also use each module individually, as documented below.
+You can see more in [the documentation](https://helmetjs.github.io/docs/).
 
+Note:
+-----
 
+In order to work well with the helmet HSTS module, koa-helmet will augment
+`this.request` to include a `secure` boolean to determine if the request
+is over HTTPS.
 
 Example
 -------
 
 ```js
-var Koa = require('koa');
-var helmet = require('koa-helmet');
-var app = new Koa();
+var Koa = require('koa')
+var helmet = require('koa-helmet')
+var app = new Koa()
 
-app.use(helmet());
+app.use(helmet())
 
 app.use((ctx) => {
-  ctx.body = 'Hello World';
-});
+  ctx.body = 'Hello World'
+})
 
-app.listen(4000);
+app.listen(4000)
 ```
 
 
