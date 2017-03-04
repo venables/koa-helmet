@@ -14,13 +14,13 @@ describe('integration', function () {
   })
 
   describe('default options', function () {
-    it('works with the default helmet call', function (done) {
+    it('works with the default helmet call', function () {
       app.use(helmet())
       app.use((ctx, next) => {
         ctx.body = 'Hello world!'
       })
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         // dnsPrefetchControl
         .expect('X-DNS-Prefetch-Control', 'off')
@@ -34,12 +34,12 @@ describe('integration', function () {
         .expect('X-Content-Type-Options', 'nosniff')
         // xssFilter
         .expect('X-XSS-Protection', '1; mode=block')
-        .expect(200, done)
+        .expect(200)
     })
   })
 
   describe('individual calls', function () {
-    it('sets the headers properly', function (done) {
+    it('sets the headers properly', function () {
       app.use(helmet.hsts({
         force: true
       }))
@@ -58,7 +58,7 @@ describe('integration', function () {
         ctx.body = 'Hello world!'
       })
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         // noCache
         .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
@@ -78,7 +78,7 @@ describe('integration', function () {
         .expect('X-Content-Type-Options', 'nosniff')
 
         // hpkp
-        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"', done)
+        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"')
     })
   })
 })
