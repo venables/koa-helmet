@@ -29,5 +29,5 @@
   "scripts": {
     "test": "mocha test"
   },
-  "main": "lib/index"
+  "main": "lib/koa-helmet.js"
 }
