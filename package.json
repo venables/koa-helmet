@@ -4,6 +4,11 @@
   "description": "Security header middleware collection for koa",
   "license": "MIT",
   "version": "3.1.0",
+  "main": "lib/koa-helmet.js",
+  "scripts": {
+    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test/**/*.spec.js'",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+  },
   "keywords": [
     "security",
     "headers",
@@ -22,12 +27,11 @@
     "helmet": "^3.0.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.16",
     "koa": "next",
     "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "standard": "^9.0.0",
     "supertest": "^2.0.1"
-  },
-  "scripts": {
-    "test": "mocha test"
-  },
-  "main": "lib/koa-helmet.js"
+  }
 }

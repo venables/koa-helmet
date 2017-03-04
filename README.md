@@ -2,8 +2,9 @@ koa-helmet
 ==========
 
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
-[![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg)](https://david-dm.org/venables/koa-helmet)
 [![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg)](https://travis-ci.org/venables/koa-helmet)
+[![Coverage Status](https://img.shields.io/coveralls/venables/koa-helmet.svg)](https://coveralls.io/github/venables/koa-helmet)
+[![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg)](https://david-dm.org/venables/koa-helmet)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
 
