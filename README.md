@@ -1,16 +1,22 @@
 koa-helmet
 ==========
 
-[![Version](https://img.shields.io/npm/v/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
-[![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg?style=flat-square)](https://david-dm.org/venables/koa-helmet)
-[![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
+[![Version](https://img.shields.io/npm/v/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
+[![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg)](https://david-dm.org/venables/koa-helmet)
+[![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg)](https://travis-ci.org/venables/koa-helmet)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
+[![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
 
-koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
+koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa). It provides important security headers to make your app more secure by default.
 
 Installation
 ------------
+
+```
+yarn add koa-helmet
+```
+
+or via npm:
 
 ```
 npm install koa-helmet --save
@@ -50,9 +56,9 @@ Example
 -------
 
 ```js
-var Koa = require('koa')
-var helmet = require('koa-helmet')
-var app = new Koa()
+const Koa = require('koa')
+const helmet = require('koa-helmet')
+const app = new Koa()
 
 app.use(helmet())
 
@@ -63,6 +69,15 @@ app.use((ctx) => {
 app.listen(4000)
 ```
 
+
+Testing
+-------
+
+To run the tests, simply run
+
+```
+yarn test
+```
 
 Versioning
 ----------
