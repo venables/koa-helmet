@@ -25,6 +25,12 @@ Installation
 ------------
 
 ```
+yarn add koa-helmet
+```
+
+or via npm:
+
+```
 npm install koa-helmet --save
 ```
 
