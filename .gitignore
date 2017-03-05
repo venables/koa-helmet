@@ -1,5 +1,15 @@
-*.DS_Store
+# Logs
+*.log
+
+# Temp
+tmp
+
+# Coverage
+.nyc_output
+coverage
+
+# Local configuration
+*.local.js
+
+# Node modules
 node_modules
-npm-debug.log
-.*.swp
-.swp
