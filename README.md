@@ -69,9 +69,9 @@ Example
 -------
 
 ```js
-var koa = require('koa')
-var helmet = require('koa-helmet')
-var app = koa()
+const koa = require('koa')
+const helmet = require('koa-helmet')
+const app = koa()
 
 app.use(helmet())
 app.use(function * () {

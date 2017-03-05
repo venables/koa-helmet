@@ -2,9 +2,9 @@
 
 /* eslint-env mocha */
 
-var helmet = require('helmet')
-var koaHelmet = require('../lib')
-var assert = require('assert')
+const helmet = require('helmet')
+const koaHelmet = require('../')
+const assert = require('assert')
 
 function isGenerator (fn) {
   return fn.constructor.name === 'GeneratorFunction'

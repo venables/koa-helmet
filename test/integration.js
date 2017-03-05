@@ -2,19 +2,16 @@
 
 /* eslint-env mocha */
 
-var helmet = require('../')
-var koa = require('koa')
-var request = require('supertest')
+const helmet = require('../')
+const koa = require('koa')
+const request = require('supertest')
 
 describe('integration test', function () {
-  var app
-
-  beforeEach(function () {
-    app = koa()
-  })
+  let app
 
   describe('defaults', function () {
-    beforeEach(function () {
+    before(function () {
+      app = koa()
       app.use(helmet())
 
       app.use(function * () {
@@ -42,7 +39,8 @@ describe('integration test', function () {
   })
 
   describe('individual middleware', function () {
-    beforeEach(function () {
+    before(function () {
+      app = koa()
       app.use(helmet.hsts({
         force: true
       }))
