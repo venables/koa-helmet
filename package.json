@@ -26,10 +26,11 @@
     "koa": "^1.1.0",
     "mocha": "^2.3.4",
     "supertest": "^1.1.0",
+    "standard": "^9.0.0",
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "./node_modules/.bin/standard && mocha test"
   },
   "main": "lib/index"
 }

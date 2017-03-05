@@ -4,6 +4,7 @@ koa-helmet
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 [![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg?style=flat-square)](https://david-dm.org/venables/koa-helmet)
 [![Build Status](https://img.shields.io/travis/venables/koa-helmet/koa-1.svg?style=flat-square)](https://travis-ci.org/venables/koa-helmet)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg?style=flat-square)](https://www.npmjs.com/package/koa-helmet)
 
 koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa).
@@ -68,14 +69,14 @@ Example
 -------
 
 ```js
-var koa = require('koa');
-var helmet = require('koa-helmet');
-var app = koa();
+var koa = require('koa')
+var helmet = require('koa-helmet')
+var app = koa()
 
-app.use(helmet());
-app.use(function *(){
-  this.body = 'Hello World';
-});
+app.use(helmet())
+app.use(function * () {
+  this.body = 'Hello World'
+})
 
-app.listen(4000);
+app.listen(4000)
 ```
