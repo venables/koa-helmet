@@ -22,8 +22,8 @@ describe('integration test', function () {
       })
     })
 
-    it('sets the headers properly', function (done) {
-      request(app.listen())
+    it('sets the headers properly', function () {
+      return request(app.listen())
         .get('/')
         // dnsPrefetchControl
         .expect('X-DNS-Prefetch-Control', 'off')
@@ -37,7 +37,7 @@ describe('integration test', function () {
         .expect('X-Content-Type-Options', 'nosniff')
         // xssFilter
         .expect('X-XSS-Protection', '1; mode=block')
-        .expect(200, done)
+        .expect(200)
     })
   })
 
@@ -62,8 +62,8 @@ describe('integration test', function () {
       })
     })
 
-    it('sets the headers properly', function (done) {
-      request(app.listen())
+    it('sets the headers properly', function () {
+      return request(app.listen())
         .get('/')
         // noCache
         .expect('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
@@ -83,7 +83,7 @@ describe('integration test', function () {
         .expect('X-Content-Type-Options', 'nosniff')
 
         // hpkp
-        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"', done)
+        .expect('Public-Key-Pins', 'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"')
     })
   })
 })
