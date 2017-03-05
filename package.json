@@ -23,6 +23,7 @@
     "helmet": "^3.0.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.16",
     "koa": "^1.1.0",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
@@ -30,7 +31,8 @@
     "supertest": "^3.0.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test'"
+    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test'",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "main": "lib/index"
 }
