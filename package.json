@@ -4,6 +4,11 @@
   "description": "Security header middleware collection for koa 1.x and koa 0.x",
   "license": "MIT",
   "version": "1.1.0",
+  "main": "lib/index",
+  "scripts": {
+    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test'",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+  },
   "keywords": [
     "security",
     "headers",
@@ -16,7 +21,7 @@
     "url": "git://github.com/venables/koa-helmet.git"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 4.0.0"
   },
   "dependencies": {
     "helmet": "^3.0.0"
@@ -28,10 +33,5 @@
     "nyc": "^10.1.2",
     "standard": "^9.0.0",
     "supertest": "^3.0.0"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test'",
-    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
-  },
-  "main": "lib/index"
+  }
 }
