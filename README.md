@@ -28,13 +28,14 @@ Usage
 
 Usage is the same as [helmet](https://github.com/helmetjs/helmet)
 
-Helmet offers 10 security middleware functions:
+Helmet offers 11 security middleware functions:
 
 | Module | Default? |
 |---|---|
 | [contentSecurityPolicy](https://helmetjs.github.io/docs/csp/) for setting Content Security Policy |  |
 | [dnsPrefetchControl](https://helmetjs.github.io/docs/dns-prefetch-control) controls browser DNS prefetching | ✓ |
 | [frameguard](https://helmetjs.github.io/docs/frameguard/) to prevent clickjacking | ✓ |
+| [hidePoweredBy](https://helmetjs.github.io/docs/hide-powered-by) to remove the X-Powered-By header | ✓ |
 | [hpkp](https://helmetjs.github.io/docs/hpkp/) for HTTP Public Key Pinning |  |
 | [hsts](https://helmetjs.github.io/docs/hsts/) for HTTP Strict Transport Security | ✓ |
 | [ieNoOpen](https://helmetjs.github.io/docs/ienoopen) sets X-Download-Options for IE8+ | ✓ |
