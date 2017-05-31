@@ -3,7 +3,7 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa 1.x and koa 0.x",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "lib/index",
   "scripts": {
     "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/.bin/mocha 'test'",
