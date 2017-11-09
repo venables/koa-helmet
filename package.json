@@ -3,7 +3,7 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
   "license": "MIT",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "lib/koa-helmet.js",
   "scripts": {
     "test": "standard && NODE_ENV=test nyc --reporter=lcov --reporter=text mocha 'test/**/*.spec.js' --exit",
