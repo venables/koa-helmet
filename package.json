@@ -6,7 +6,7 @@
   "version": "3.3.0",
   "main": "lib/koa-helmet.js",
   "scripts": {
-    "test": "standard && NODE_ENV=test nyc --reporter=lcov --reporter=text mocha 'test/**/*.spec.js' --exit",
+    "test": "standard && NODE_ENV=test nyc --reporter=lcov --reporter=text ava 'test/**/*.spec.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
@@ -27,10 +27,10 @@
     "helmet": "^3.9.0"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
     "coveralls": "^3.0.0",
     "koa": "^2.4.1",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0",
+    "nyc": "^11.4.1",
     "standard": "^10.0.3",
     "supertest": "^3.0.0"
   }
