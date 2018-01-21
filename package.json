@@ -6,7 +6,8 @@
   "version": "3.3.0",
   "main": "lib/koa-helmet.js",
   "scripts": {
-    "test": "standard && NODE_ENV=test nyc --reporter=lcov --reporter=text ava 'test/**/*.spec.js'",
+    "lint": "semistandard",
+    "test": "semistandard && NODE_ENV=test nyc --reporter=lcov --reporter=text ava 'test/**/*.spec.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
@@ -31,7 +32,7 @@
     "coveralls": "^3.0.0",
     "koa": "^2.4.1",
     "nyc": "^11.4.1",
-    "standard": "^10.0.3",
+    "semistandard": "^12.0.0",
     "supertest": "^3.0.0"
   }
 }
