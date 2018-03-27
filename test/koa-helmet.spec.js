@@ -8,23 +8,29 @@ const test = require('ava');
 test('it works with the default helmet call', t => {
   const app = new Koa();
   app.use(helmet());
-  app.use((ctx, next) => {
+  app.use((ctx) => {
     ctx.body = 'Hello world!';
   });
 
   return (
     request(app.listen())
       .get('/')
+
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
+
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
+
       // hsts: Not enabled in HTTP
-      // .expect('Strict-Transport-Security', 'max-age=5184000; includeSubDomains')
+      .expect('Strict-Transport-Security', 'max-age=15552000; includeSubDomains')
+
       // ieNoOpen
       .expect('X-Download-Options', 'noopen')
+
       // noSniff
       .expect('X-Content-Type-Options', 'nosniff')
+
       // xssFilter
       .expect('X-XSS-Protection', '1; mode=block')
       .expect(200)
