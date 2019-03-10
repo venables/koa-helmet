@@ -23,7 +23,7 @@
     "url": "git://github.com/venables/koa-helmet.git"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.0.0"
   },
   "dependencies": {
     "helmet": "^3.15.1"
