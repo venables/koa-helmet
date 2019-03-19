@@ -50,6 +50,15 @@ test('it sets individual headers properly', t => {
   app.use(helmet.xssFilter());
   app.use(helmet.frameguard('deny'));
   app.use(helmet.noSniff());
+  app.use(helmet.permittedCrossDomainPolicies());
+  app.use(helmet.expectCt());
+  app.use(helmet.featurePolicy({
+    features: {
+      fullscreen: ['\'self\''],
+      notifications: ['\'none\''],
+      vibrate: ['\'none\'']
+    }
+  }));
   app.use(
     helmet.hpkp({
       maxAge: 1000,
@@ -88,6 +97,15 @@ test('it sets individual headers properly', t => {
 
       // noSniff
       .expect('X-Content-Type-Options', 'nosniff')
+
+      // permittedCrossDomainPolicies
+      .expect('X-Permitted-Cross-Domain-Policies', 'none')
+
+      // expectCt
+      .expect('Expect-CT', 'max-age=0')
+
+      // featurePolicy
+      .expect('Feature-Policy', 'fullscreen \'self\';notifications \'none\';vibrate \'none\'')
 
       // hpkp
       .expect(
