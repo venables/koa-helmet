@@ -28,7 +28,7 @@ Usage
 
 Usage is the same as [helmet](https://github.com/helmetjs/helmet)
 
-Helmet offers 11 security middleware functions:
+Helmet offers 14 security middleware functions:
 
 | Module | Default? |
 |---|---|
