@@ -20,7 +20,7 @@
     "hsts"
   ],
   "repository": {
-    "url": "git://github.com/venables/koa-helmet.git"
+    "url": "https://github.com/venables/koa-helmet"
   },
   "engines": {
     "node": ">= 8.0.0"
