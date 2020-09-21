@@ -16,8 +16,14 @@ test('it works with the default helmet call', t => {
     request(app.listen())
       .get('/')
 
+      // contentSecurityPolicy
+      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';block-all-mixed-content;font-src \'self\' https: data:;frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
+
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
+
+      // expectCt
+      .expect('Expect-CT', 'max-age=0')
 
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
@@ -31,8 +37,15 @@ test('it works with the default helmet call', t => {
       // noSniff
       .expect('X-Content-Type-Options', 'nosniff')
 
+      // referrerPolicy
+      .expect('referrer-policy', 'no-referrer')
+
+      // permittedCrossDomainPolicies
+      .expect('x-permitted-cross-domain-policies', 'none')
+
       // xssFilter
-      .expect('X-XSS-Protection', '1; mode=block')
+      .expect('X-Xss-Protection', '0')
+
       .expect(200)
       .then(() => t.pass())
       .catch(err => t.fail(err))
@@ -46,27 +59,19 @@ test('it sets individual headers properly', t => {
       force: true
     })
   );
-  app.use(helmet.noCache());
+  app.use(helmet.contentSecurityPolicy());
+  app.use(
+    helmet.dnsPrefetchControl({
+      allow: false,
+    })
+  );
+  app.use(helmet.ieNoOpen());
+  app.use(helmet.referrerPolicy());
   app.use(helmet.xssFilter());
   app.use(helmet.frameguard('deny'));
   app.use(helmet.noSniff());
   app.use(helmet.permittedCrossDomainPolicies());
   app.use(helmet.expectCt());
-  app.use(helmet.featurePolicy({
-    features: {
-      fullscreen: ['\'self\''],
-      notifications: ['\'none\''],
-      vibrate: ['\'none\'']
-    }
-  }));
-  app.use(
-    helmet.hpkp({
-      maxAge: 1000,
-      sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-      includeSubdomains: true,
-      reportUri: 'http://example.com'
-    })
-  );
 
   app.use(ctx => {
     ctx.body = 'Hello world!';
@@ -75,22 +80,24 @@ test('it sets individual headers properly', t => {
   return (
     request(app.listen())
       .get('/')
-      // noCache
-      .expect(
-        'Cache-Control',
-        'no-store, no-cache, must-revalidate, proxy-revalidate'
-      )
-      .expect('Pragma', 'no-cache')
-      .expect('Expires', '0')
+
+      // contentSecurityPolicy
+      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';block-all-mixed-content;font-src \'self\' https: data:;frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
+
+      // dnsPrefetchControl
+      .expect('X-DNS-Prefetch-Control', 'off')
+
+      // referrerPolicy
+      .expect('referrer-policy', 'no-referrer')
+
+      // ieNoOpen
+      .expect('X-Download-Options', 'noopen')
 
       // hsts
       .expect(
         'Strict-Transport-Security',
         'max-age=15552000; includeSubDomains'
       )
-
-      // xssFilter
-      .expect('X-XSS-Protection', '1; mode=block')
 
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
@@ -104,14 +111,6 @@ test('it sets individual headers properly', t => {
       // expectCt
       .expect('Expect-CT', 'max-age=0')
 
-      // featurePolicy
-      .expect('Feature-Policy', 'fullscreen \'self\';notifications \'none\';vibrate \'none\'')
-
-      // hpkp
-      .expect(
-        'Public-Key-Pins',
-        'pin-sha256="AbCdEf123="; pin-sha256="ZyXwVu456="; max-age=1000; includeSubDomains; report-uri="http://example.com"'
-      )
       .then(() => t.pass())
       .catch(err => t.fail(err))
   );
