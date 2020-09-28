@@ -26,16 +26,16 @@
     "node": ">= 8.0.0"
   },
   "dependencies": {
-    "helmet": "^4.1.0"
+    "helmet": "^4.1.1"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.1.0",
-    "eslint-plugin-node": "^9.1.0",
-    "koa": "^2.7.0",
-    "nyc": "^14.1.1",
-    "supertest": "^4.0.2"
+    "ava": "^3.13.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-node": "^11.1.0",
+    "koa": "^2.13.0",
+    "nyc": "^15.1.0",
+    "supertest": "^5.0.0"
   },
   "nyc": {
     "reporter": [
