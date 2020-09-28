@@ -3,7 +3,7 @@
   "author": "Matt Venables <mattvenables@gmail.com>",
   "description": "Security header middleware collection for koa",
   "license": "MIT",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "main": "lib/koa-helmet.js",
   "scripts": {
     "format": "eslint lib test --fix",
