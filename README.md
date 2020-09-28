@@ -28,24 +28,25 @@ Usage
 
 Usage is the same as [helmet](https://github.com/helmetjs/helmet)
 
-Helmet offers 14 security middleware functions:
+Helmet offers 11 security middleware functions:
 
-| Module | Default? |
-|---|---|
-| [contentSecurityPolicy](https://helmetjs.github.io/docs/csp/) for setting Content Security Policy |  |
-| [permittedCrossDomainPolicies](https://helmetjs.github.io/docs/crossdomain/) for handling Adobe products' crossdomain requests |  |
-| [dnsPrefetchControl](https://helmetjs.github.io/docs/dns-prefetch-control) controls browser DNS prefetching | ✓ |
-| [expectCt](https://helmetjs.github.io/docs/expect-ct/) for handling Certificate Transparency |  |
-| [featurePolicy](https://helmetjs.github.io/docs/feature-policy/) to limit your site's features |  |
-| [frameguard](https://helmetjs.github.io/docs/frameguard/) to prevent clickjacking | ✓ |
-| [hidePoweredBy](https://helmetjs.github.io/docs/hide-powered-by) to remove the X-Powered-By header | ✓ |
-| [hpkp](https://helmetjs.github.io/docs/hpkp/) for HTTP Public Key Pinning |  |
-| [hsts](https://helmetjs.github.io/docs/hsts/) for HTTP Strict Transport Security | ✓ |
-| [ieNoOpen](https://helmetjs.github.io/docs/ienoopen) sets X-Download-Options for IE8+ | ✓ |
-| [noCache](https://helmetjs.github.io/docs/nocache/) to disable client-side caching |  |
-| [noSniff](https://helmetjs.github.io/docs/dont-sniff-mimetype) to keep clients from sniffing the MIME type | ✓ |
-| [referrerPolicy](https://helmetjs.github.io/docs/referrer-policy) to hide the Referer header |  |
-| [xssFilter](https://helmetjs.github.io/docs/xss-filter) adds some small XSS protections | ✓ |
+```js
+// This...
+app.use(helmet());
+
+// ...is equivalent to this:
+app.use(helmet.contentSecurityPolicy());
+app.use(helmet.dnsPrefetchControl());
+app.use(helmet.expectCt());
+app.use(helmet.frameguard());
+app.use(helmet.hidePoweredBy());
+app.use(helmet.hsts());
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+app.use(helmet.permittedCrossDomainPolicies());
+app.use(helmet.referrerPolicy());
+app.use(helmet.xssFilter());
+```
 
 You can see more in [the documentation](https://helmetjs.github.io/docs/).
 
