@@ -115,3 +115,8 @@ test('it sets individual headers properly', t => {
       .catch(err => t.fail(err))
   );
 });
+
+test('it reexports middleware exports', t => {
+  t.true('getDefaultDirectives' in helmet.contentSecurityPolicy);
+  t.true('dangerouslyDisableDefaultSrc' in helmet.contentSecurityPolicy);
+});
