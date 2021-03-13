@@ -2,7 +2,6 @@ koa-helmet
 ==========
 
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
-[![Build Status](https://img.shields.io/travis/venables/koa-helmet/master.svg)](https://travis-ci.org/venables/koa-helmet)
 [![Coverage Status](https://img.shields.io/coveralls/venables/koa-helmet.svg)](https://coveralls.io/github/venables/koa-helmet)
 [![Dependency Status](https://img.shields.io/david/venables/koa-helmet.svg)](https://david-dm.org/venables/koa-helmet)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
@@ -13,14 +12,12 @@ koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work
 Installation
 ------------
 
-```
+```sh
+npm i koa-helmet
+
+# or:
+
 yarn add koa-helmet
-```
-
-or via npm:
-
-```
-npm install koa-helmet --save
 ```
 
 Usage
@@ -83,7 +80,7 @@ Testing
 To run the tests, simply run
 
 ```
-yarn test
+npm test
 ```
 
 Versioning
