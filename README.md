@@ -46,21 +46,13 @@ app.use(helmet.xssFilter());
 
 You can see more in [the documentation](https://helmetjs.github.io/docs/).
 
-Note:
------
-
-In order to work well with the helmet HSTS module, koa-helmet will augment
-`this.request` to include a `secure` boolean to determine if the request
-is over HTTPS.
-
 Example
 -------
 
 ```js
-"use strict";
+import Koa from 'koa';
+import helmet from 'koa-helmet';
 
-const Koa = require("koa");
-const helmet = require("koa-helmet");
 const app = new Koa();
 
 app.use(helmet());

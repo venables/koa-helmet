@@ -28,7 +28,7 @@ test('it works with the default helmet call', t => {
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
 
-      // hsts: Not enabled in HTTP
+      // hsts
       .expect('Strict-Transport-Security', 'max-age=15552000; includeSubDomains')
 
       // ieNoOpen
