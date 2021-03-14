@@ -5,6 +5,7 @@
   "license": "MIT",
   "version": "6.0.0",
   "main": "lib/koa-helmet.js",
+  "typings": "./koa-helmet.d.ts",
   "scripts": {
     "format": "eslint lib test --fix",
     "lint": "eslint lib test",
