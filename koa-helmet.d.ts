@@ -36,6 +36,7 @@ declare namespace koaHelmet {
 
     interface KoaHelmetContentSecurityPolicyConfiguration {
         reportOnly?: boolean;
+        useDefaults?: boolean;
         directives?: KoaHelmetContentSecurityPolicyDirectives;
     }
 
