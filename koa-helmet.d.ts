@@ -32,6 +32,7 @@ declare namespace koaHelmet {
         sandbox?: KoaHelmetCspDirectiveValue[];
         scriptSrc?: KoaHelmetCspDirectiveValue[];
         styleSrc?: KoaHelmetCspDirectiveValue[];
+        workerSrc?: KoaHelmetCspDirectiveValue[];
     }
 
     interface KoaHelmetContentSecurityPolicyConfiguration {
