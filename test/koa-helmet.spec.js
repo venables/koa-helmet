@@ -22,9 +22,6 @@ test('it works with the default helmet call', t => {
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
 
-      // expectCt
-      .expect('Expect-CT', 'max-age=0')
-
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
 
@@ -107,9 +104,6 @@ test('it sets individual headers properly', t => {
 
       // permittedCrossDomainPolicies
       .expect('X-Permitted-Cross-Domain-Policies', 'none')
-
-      // expectCt
-      .expect('Expect-CT', 'max-age=0')
 
       .then(() => t.pass())
       .catch(err => t.fail(err))
