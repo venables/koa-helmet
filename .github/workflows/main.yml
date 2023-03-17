@@ -2,16 +2,16 @@ name: CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 10, 12, 14 ]
+        node: [14, 16, 18]
     name: "Lint & Test (Node ${{ matrix.node }})"
     steps:
       - uses: actions/checkout@v2
