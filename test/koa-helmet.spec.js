@@ -17,13 +17,10 @@ test('it works with the default helmet call', t => {
       .get('/')
 
       // contentSecurityPolicy
-      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';block-all-mixed-content;font-src \'self\' https: data:;frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
+      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';font-src \'self\' https: data:;form-action \'self\';frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
 
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
-
-      // expectCt
-      .expect('Expect-CT', 'max-age=0')
 
       // frameguard
       .expect('X-Frame-Options', 'SAMEORIGIN')
@@ -48,7 +45,9 @@ test('it works with the default helmet call', t => {
 
       .expect(200)
       .then(() => t.pass())
-      .catch(err => t.fail(err))
+      .catch((err) => {
+        t.fail(err);}
+      )
   );
 });
 
@@ -82,7 +81,7 @@ test('it sets individual headers properly', t => {
       .get('/')
 
       // contentSecurityPolicy
-      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';block-all-mixed-content;font-src \'self\' https: data:;frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
+      .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';font-src \'self\' https: data:;form-action \'self\';frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
 
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
@@ -107,9 +106,6 @@ test('it sets individual headers properly', t => {
 
       // permittedCrossDomainPolicies
       .expect('X-Permitted-Cross-Domain-Policies', 'none')
-
-      // expectCt
-      .expect('Expect-CT', 'max-age=0')
 
       .then(() => t.pass())
       .catch(err => t.fail(err))

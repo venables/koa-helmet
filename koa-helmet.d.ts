@@ -28,10 +28,17 @@ declare namespace koaHelmet {
         mediaSrc?: KoaHelmetCspDirectiveValue[];
         objectSrc?: KoaHelmetCspDirectiveValue[];
         pluginTypes?: KoaHelmetCspDirectiveValue[];
+        prefetchSrc?: KoaHelmetCspDirectiveValue[];
+        reportTo?: string;
         reportUri?: string;
         sandbox?: KoaHelmetCspDirectiveValue[];
         scriptSrc?: KoaHelmetCspDirectiveValue[];
+        scriptSrcAttr?: KoahelmetCspDirectiveValue[];
+        scriptSrcElem?: KoaHelmetCspDirectiveValue[];
         styleSrc?: KoaHelmetCspDirectiveValue[];
+        styleSrcAttr?: KoaHelmetCspDirectiveValue[];
+        styleSrcElem?: KoaHelmetCspDirectiveValue[];
+        workerSrc?: KoaHelmetCspDirectiveValue[];
     }
 
     interface KoaHelmetContentSecurityPolicyConfiguration {
