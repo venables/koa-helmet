@@ -67,10 +67,10 @@ test('it sets individual headers properly', t => {
       force: true
     })
   );
+  app.use(helmet.contentSecurityPolicy());
   app.use(helmet.crossOriginEmbedderPolicy());
   app.use(helmet.crossOriginOpenerPolicy());
   app.use(helmet.crossOriginResourcePolicy());
-  app.use(helmet.contentSecurityPolicy());
   app.use(
     helmet.dnsPrefetchControl({
       allow: false,
@@ -103,7 +103,7 @@ test('it sets individual headers properly', t => {
 
       // crossOriginResourcePolicy
       .expect('Cross-Origin-Resource-Policy', 'same-origin')
-      
+
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
 
