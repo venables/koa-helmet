@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import helmet = require('helmet');
+import helmet from 'helmet';
 import { Middleware, Context } from 'koa';
 
 type HelmetOptions = Required<Parameters<typeof helmet>>[0];
@@ -33,7 +33,7 @@ declare namespace koaHelmet {
         reportUri?: string;
         sandbox?: KoaHelmetCspDirectiveValue[];
         scriptSrc?: KoaHelmetCspDirectiveValue[];
-        scriptSrcAttr?: KoahelmetCspDirectiveValue[];
+        scriptSrcAttr?: KoaHelmetCspDirectiveValue[];
         scriptSrcElem?: KoaHelmetCspDirectiveValue[];
         styleSrc?: KoaHelmetCspDirectiveValue[];
         styleSrcAttr?: KoaHelmetCspDirectiveValue[];
