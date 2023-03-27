@@ -33,7 +33,7 @@ declare namespace koaHelmet {
         reportUri?: string;
         sandbox?: KoaHelmetCspDirectiveValue[];
         scriptSrc?: KoaHelmetCspDirectiveValue[];
-        scriptSrcAttr?: KoahelmetCspDirectiveValue[];
+        scriptSrcAttr?: KoaHelmetCspDirectiveValue[];
         scriptSrcElem?: KoaHelmetCspDirectiveValue[];
         styleSrc?: KoaHelmetCspDirectiveValue[];
         styleSrcAttr?: KoaHelmetCspDirectiveValue[];
