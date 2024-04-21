@@ -27,7 +27,7 @@
     "node": ">= 14.0.0"
   },
   "dependencies": {
-    "helmet": "^6.0.1"
+    "helmet": "~7"
   },
   "devDependencies": {
     "ava": "^3.13.0",

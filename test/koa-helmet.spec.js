@@ -70,7 +70,6 @@ test('it sets individual headers properly', t => {
   app.use(helmet.frameguard('deny'));
   app.use(helmet.noSniff());
   app.use(helmet.permittedCrossDomainPolicies());
-  app.use(helmet.expectCt());
 
   app.use(ctx => {
     ctx.body = 'Hello world!';
