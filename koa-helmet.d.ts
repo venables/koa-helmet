@@ -1,4 +1,4 @@
-// Type definitions for koa-helmet 6.0
+// Type definitions for koa-helmet 7.0
 // Project: https://github.com/venables/koa-helmet#readme
 // Definitions by: Nick Simmons <https://github.com/nsimmons>
 //                 Jan Dolezel <https://github.com/dolezel>
@@ -11,7 +11,7 @@ import { Middleware, Context } from 'koa';
 type HelmetOptions = Required<Parameters<typeof helmet>>[0];
 
 declare namespace koaHelmet {
-    type KoaHelmetContentSecurityPolicyDirectiveFunction = (ctx: Context) => string;
+    type KoaHelmetContentSecurityPolicyDirectiveFunction = (req?: Context["req"], res?: Context["res"]) => string;
 
     type KoaHelmetCspDirectiveValue = string | KoaHelmetContentSecurityPolicyDirectiveFunction;
 
