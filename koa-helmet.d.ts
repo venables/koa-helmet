@@ -8,7 +8,7 @@
 import helmet from 'helmet';
 import { Middleware, Context } from 'koa';
 
-type HelmetOptions = Required<Parameters<typeof helmet>>[0];
+type HelmetOptions = helmet.HelmetOptions;
 
 declare namespace koaHelmet {
     type KoaHelmetContentSecurityPolicyDirectiveFunction = (req?: Context["req"], res?: Context["res"]) => string;
@@ -50,6 +50,9 @@ declare namespace koaHelmet {
     interface KoaHelmet {
         (options?: HelmetOptions): Middleware;
         contentSecurityPolicy(options?: KoaHelmetContentSecurityPolicyConfiguration): Middleware;
+        crossOriginEmbedderPolicy(options?: HelmetOptions['crossOriginEmbedderPolicy']): Middleware;
+        crossOriginOpenerPolicy(options?: HelmetOptions['crossOriginOpenerPolicy']): Middleware;
+        crossOriginResourcePolicy(options?: HelmetOptions['crossOriginResourcePolicy']): Middleware;
         dnsPrefetchControl(options?: HelmetOptions['dnsPrefetchControl']): Middleware;
         expectCt(options?: HelmetOptions['expectCt']): Middleware;
         frameguard(options?: HelmetOptions['frameguard']): Middleware;

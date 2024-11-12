@@ -19,6 +19,15 @@ test('it works with the default helmet call', t => {
       // contentSecurityPolicy
       .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';font-src \'self\' https: data:;form-action \'self\';frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
 
+      // crossOriginEmbedderPolicy
+      .expect('Cross-Origin-Embedder-Policy', 'require-corp')
+
+      // crossOriginOpenerPolicy
+      .expect('Cross-Origin-Opener-Policy', 'same-origin')
+
+      // crossOriginResourcePolicy
+      .expect('Cross-Origin-Resource-Policy', 'same-origin')
+      
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
 
@@ -59,6 +68,9 @@ test('it sets individual headers properly', t => {
     })
   );
   app.use(helmet.contentSecurityPolicy());
+  app.use(helmet.crossOriginEmbedderPolicy());
+  app.use(helmet.crossOriginOpenerPolicy());
+  app.use(helmet.crossOriginResourcePolicy());
   app.use(
     helmet.dnsPrefetchControl({
       allow: false,
@@ -81,6 +93,15 @@ test('it sets individual headers properly', t => {
 
       // contentSecurityPolicy
       .expect('Content-Security-Policy', 'default-src \'self\';base-uri \'self\';font-src \'self\' https: data:;form-action \'self\';frame-ancestors \'self\';img-src \'self\' data:;object-src \'none\';script-src \'self\';script-src-attr \'none\';style-src \'self\' https: \'unsafe-inline\';upgrade-insecure-requests')
+
+      // crossOriginEmbedderPolicy
+      .expect('Cross-Origin-Embedder-Policy', 'require-corp')
+
+      // crossOriginOpenerPolicy
+      .expect('Cross-Origin-Opener-Policy', 'same-origin')
+
+      // crossOriginResourcePolicy
+      .expect('Cross-Origin-Resource-Policy', 'same-origin')
 
       // dnsPrefetchControl
       .expect('X-DNS-Prefetch-Control', 'off')
