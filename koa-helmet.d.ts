@@ -43,6 +43,7 @@ declare namespace koaHelmet {
     styleSrc?: KoaHelmetCspDirectiveValue[];
     styleSrcAttr?: KoaHelmetCspDirectiveValue[];
     styleSrcElem?: KoaHelmetCspDirectiveValue[];
+    upgradeInsecureRequests: never[];
     workerSrc?: KoaHelmetCspDirectiveValue[];
   }
 
