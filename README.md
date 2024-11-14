@@ -8,11 +8,11 @@ koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work
 ## Installation
 
 ```sh
-npm i koa-helmet
+npm i koa-helmet helmet
 
 # or:
 
-yarn add koa-helmet
+yarn add koa-helmet helmet
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
 ```
 
-You can see more in [the documentation](https://helmetjs.github.io/docs/).
+You can see more in [the documentation](https://helmetjs.github.io).
 
 ## Example
 
