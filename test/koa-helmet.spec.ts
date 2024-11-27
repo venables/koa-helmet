@@ -54,11 +54,7 @@ test("it works with the default helmet call", async () => {
 
 test("it sets individual headers properly", async () => {
   const app = new Koa();
-  app.use(
-    helmet.hsts({
-      force: true,
-    }),
-  );
+  app.use(helmet.hsts());
   app.use(helmet.contentSecurityPolicy());
   app.use(helmet.crossOriginEmbedderPolicy());
   app.use(helmet.crossOriginOpenerPolicy());
@@ -71,7 +67,7 @@ test("it sets individual headers properly", async () => {
   app.use(helmet.ieNoOpen());
   app.use(helmet.referrerPolicy());
   app.use(helmet.xssFilter());
-  app.use(helmet.frameguard("deny"));
+  app.use(helmet.frameguard({ action: "deny" }));
   app.use(helmet.noSniff());
   app.use(helmet.permittedCrossDomainPolicies());
 
@@ -110,7 +106,7 @@ test("it sets individual headers properly", async () => {
     .expect("Strict-Transport-Security", "max-age=15552000; includeSubDomains")
 
     // frameguard
-    .expect("X-Frame-Options", "SAMEORIGIN")
+    .expect("X-Frame-Options", "DENY")
 
     // noSniff
     .expect("X-Content-Type-Options", "nosniff")
