@@ -1,4 +1,4 @@
-// Type definitions for koa-helmet 7.0
+// Type definitions for koa-helmet 8.0
 // Project: https://github.com/venables/koa-helmet#readme
 // Definitions by: Nick Simmons <https://github.com/nsimmons>
 //                 Jan Dolezel <https://github.com/dolezel>
@@ -16,5 +16,5 @@ type KoaHelmet = {
   ) => Middleware;
 } & ((options?: HelmetOptions) => Middleware);
 
-const koaHelmet: KoaHelmet;
+declare const koaHelmet: KoaHelmet;
 export default koaHelmet;
