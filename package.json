@@ -3,15 +3,16 @@
   "author": "Matt Venables <matt@venabl.es>",
   "description": "Security header middleware collection for koa",
   "license": "MIT",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "main": "lib/koa-helmet.js",
   "typings": "./koa-helmet.d.ts",
   "scripts": {
-    "check": "npm run format:check && npm run lint && npm run test",
+    "check": "npm run format:check && npm run lint && npm run test && npm run typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "vitest"
+    "test": "vitest",
+    "typecheck": "tsc --noEmit --pretty"
   },
   "keywords": [
     "security",
