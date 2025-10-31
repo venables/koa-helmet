@@ -68,5 +68,5 @@ npm test
 
 ## Versioning
 
-- koa-helmet >=2.x (master branch) supports koa 2.x
+- koa-helmet >=2.x (main branch) supports koa 2.x and 3.x
 - koa-helmet 1.x ([koa-1](https://github.com/venables/koa-helmet/tree/koa-1) branch) supports koa 0.x and koa 1.x

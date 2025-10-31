@@ -9,7 +9,7 @@ tmp
 coverage
 
 # Local configuration
-*.local.js
+*.local.*
 
 # Node modules
 node_modules
