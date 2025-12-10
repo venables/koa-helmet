@@ -4,9 +4,13 @@
   "description": "Security header middleware collection for koa",
   "type": "module",
   "license": "MIT",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "main": "lib/koa-helmet.js",
   "typings": "./koa-helmet.d.ts",
+  "files": [
+    "lib",
+    "koa-helmet.d.ts"
+  ],
   "scripts": {
     "check": "npm run format:check && npm run lint && npm run test && npm run typecheck",
     "format": "prettier --write .",

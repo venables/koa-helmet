@@ -3,7 +3,9 @@
 [![Version](https://img.shields.io/npm/v/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
 [![Downloads](https://img.shields.io/npm/dm/koa-helmet.svg)](https://www.npmjs.com/package/koa-helmet)
 
-koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa). It provides important security headers to make your app more secure by default.
+koa-helmet is a wrapper for [helmet](https://github.com/helmetjs/helmet) to work with [koa](https://github.com/koajs/koa) (v2 and v3). It provides important security headers to make your app more secure by default.
+
+This package has **zero** direct dependencies, with `peerDependencies` of koa and helmet.
 
 ## Installation
 
