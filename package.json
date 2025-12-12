@@ -34,8 +34,8 @@
     "node": ">= 18.0.0"
   },
   "peerDependencies": {
-    "helmet": ">= 6",
-    "koa": ">= 2"
+    "helmet": ">= 6 <8",
+    "koa": ">=2 <4"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
