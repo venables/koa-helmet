@@ -32,7 +32,7 @@ test("it works with the default helmet call", async () => {
     .expect("X-Frame-Options", "SAMEORIGIN")
 
     // hsts
-    .expect("Strict-Transport-Security", "max-age=15552000; includeSubDomains")
+    .expect("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
     // ieNoOpen
     .expect("X-Download-Options", "noopen")
@@ -103,7 +103,7 @@ test("it sets individual headers properly", async () => {
     .expect("X-Download-Options", "noopen")
 
     // hsts
-    .expect("Strict-Transport-Security", "max-age=15552000; includeSubDomains")
+    .expect("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
     // frameguard
     .expect("X-Frame-Options", "DENY")
