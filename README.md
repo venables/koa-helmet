@@ -14,7 +14,7 @@ npm i koa-helmet helmet
 
 # or:
 
-yarn add koa-helmet helmet
+bun add koa-helmet helmet
 ```
 
 ## Usage

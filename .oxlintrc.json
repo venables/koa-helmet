@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "oxc",
+    "node",
+    "jsdoc",
+    "vitest",
+    "promise",
+    "import",
+    "typescript",
+    "unicorn"
+  ],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "promise/no-callback-in-promise": "off"
+  },
+  "settings": {}
+}

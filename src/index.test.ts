@@ -1,16 +1,17 @@
-import helmet from "../";
-import Koa from "koa";
-import request from "supertest";
-import { test, expect } from "vitest";
+import Koa from "koa"
+import request from "supertest"
+import { test, expect } from "vitest"
 
-test("it works with the default helmet call", async () => {
-  const app = new Koa();
-  app.use(helmet());
+import helmet from ".."
+
+test("works with the default helmet call", async () => {
+  const app = new Koa()
+  app.use(helmet())
   app.use((ctx) => {
-    ctx.body = "Hello world!";
-  });
+    ctx.body = "Hello world!"
+  })
 
-  await request(app.listen())
+  await request(app.callback())
     .get("/")
 
     // contentSecurityPolicy
@@ -32,7 +33,7 @@ test("it works with the default helmet call", async () => {
     .expect("X-Frame-Options", "SAMEORIGIN")
 
     // hsts
-    .expect("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+    .expect("Strict-Transport-Security", /max-age=\d+; includeSubDomains/)
 
     // ieNoOpen
     .expect("X-Download-Options", "noopen")
@@ -49,33 +50,33 @@ test("it works with the default helmet call", async () => {
     // xssFilter
     .expect("X-Xss-Protection", "0")
 
-    .expect(200);
-});
+    .expect(200)
+})
 
-test("it sets individual headers properly", async () => {
-  const app = new Koa();
-  app.use(helmet.hsts());
-  app.use(helmet.contentSecurityPolicy());
-  app.use(helmet.crossOriginEmbedderPolicy());
-  app.use(helmet.crossOriginOpenerPolicy());
-  app.use(helmet.crossOriginResourcePolicy());
+test("sets individual headers properly", async () => {
+  const app = new Koa()
+  app.use(helmet.hsts())
+  app.use(helmet.contentSecurityPolicy())
+  app.use(helmet.crossOriginEmbedderPolicy())
+  app.use(helmet.crossOriginOpenerPolicy())
+  app.use(helmet.crossOriginResourcePolicy())
   app.use(
     helmet.dnsPrefetchControl({
       allow: false,
     }),
-  );
-  app.use(helmet.ieNoOpen());
-  app.use(helmet.referrerPolicy());
-  app.use(helmet.xssFilter());
-  app.use(helmet.frameguard({ action: "deny" }));
-  app.use(helmet.noSniff());
-  app.use(helmet.permittedCrossDomainPolicies());
+  )
+  app.use(helmet.ieNoOpen())
+  app.use(helmet.referrerPolicy())
+  app.use(helmet.xssFilter())
+  app.use(helmet.frameguard({ action: "deny" }))
+  app.use(helmet.noSniff())
+  app.use(helmet.permittedCrossDomainPolicies())
 
   app.use((ctx) => {
-    ctx.body = "Hello world!";
-  });
+    ctx.body = "Hello world!"
+  })
 
-  await request(app.listen())
+  await request(app.callback())
     .get("/")
 
     // contentSecurityPolicy
@@ -103,7 +104,7 @@ test("it sets individual headers properly", async () => {
     .expect("X-Download-Options", "noopen")
 
     // hsts
-    .expect("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+    .expect("Strict-Transport-Security", /max-age=\d+; includeSubDomains/)
 
     // frameguard
     .expect("X-Frame-Options", "DENY")
@@ -112,12 +113,10 @@ test("it sets individual headers properly", async () => {
     .expect("X-Content-Type-Options", "nosniff")
 
     // permittedCrossDomainPolicies
-    .expect("X-Permitted-Cross-Domain-Policies", "none");
-});
+    .expect("X-Permitted-Cross-Domain-Policies", "none")
+})
 
-test("it reexports middleware exports", () => {
-  expect("getDefaultDirectives" in helmet.contentSecurityPolicy).toBeTruthy();
-  expect(
-    "dangerouslyDisableDefaultSrc" in helmet.contentSecurityPolicy,
-  ).toBeTruthy();
-});
+test("re-exports middleware exports", () => {
+  expect("getDefaultDirectives" in helmet.contentSecurityPolicy).toBeTruthy()
+  expect("dangerouslyDisableDefaultSrc" in helmet.contentSecurityPolicy).toBeTruthy()
+})

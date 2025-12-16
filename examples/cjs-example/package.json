@@ -1,0 +1,11 @@
+{
+  "name": "koa-helmet-cjs-example",
+  "private": true,
+  "scripts": {
+    "dev": "node index.cjs"
+  },
+  "dependencies": {
+    "koa": "^3",
+    "koa-helmet": "file:../.."
+  }
+}
