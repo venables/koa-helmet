@@ -62,11 +62,23 @@ app.listen(4000);
 
 ## Testing
 
-To run the tests, simply run
+To run the test and lint suite, simply run
 
 ```
-npm test
+npm check
 ```
+
+Alternatively, you can run:
+
+```bash
+npm run test
+npm run lint
+npm run format:check
+```
+
+## Contributing
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Versioning
 
