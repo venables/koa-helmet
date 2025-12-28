@@ -1,0 +1,11 @@
+{
+  "name": "koa-helmet-esm-example",
+  "private": true,
+  "scripts": {
+    "dev": "node index.mjs"
+  },
+  "dependencies": {
+    "koa": "^3",
+    "koa-helmet": "file:../.."
+  }
+}

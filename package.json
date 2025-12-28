@@ -1,55 +1,74 @@
 {
   "name": "koa-helmet",
-  "author": "Matt Venables <matt@venabl.es>",
-  "description": "Security header middleware collection for koa",
-  "license": "MIT",
   "version": "8.0.3",
-  "main": "lib/koa-helmet.js",
-  "typings": "./koa-helmet.d.ts",
-  "files": [
-    "lib",
-    "koa-helmet.d.ts"
-  ],
-  "scripts": {
-    "changeset": "npx @changesets/cli",
-    "check": "npm run format:check && npm run lint && npm run test && npm run typecheck",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint .",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit --pretty"
-  },
+  "description": "Security header middleware collection for koa",
   "keywords": [
-    "security",
-    "headers",
-    "koa",
-    "x-frame-options",
     "csp",
-    "hsts"
+    "headers",
+    "helmet",
+    "hsts",
+    "koa",
+    "security",
+    "x-frame-options"
   ],
+  "license": "MIT",
+  "author": "Matt Venables <matt@venabl.es>",
   "repository": {
     "url": "https://github.com/venables/koa-helmet"
   },
-  "engines": {
-    "node": ">= 18.0.0"
+  "files": [
+    "dist"
+  ],
+  "type": "commonjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
-  "peerDependencies": {
-    "helmet": ">= 6",
-    "koa": ">= 2"
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm,cjs --dts --clean",
+    "changeset": "npx @changesets/cli",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm test",
+    "fix": "npm run format && npm run lint:fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix --fix-suggestions",
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit --pretty"
   },
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
     "@types/koa": "^3.0.1",
     "@types/supertest": "^6.0.3",
-    "eslint": "^9.38.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^16.4.0",
+    "helmet-7": "npm:helmet@^7.0.0",
+    "helmet-8": "npm:helmet@^8.0.0",
     "koa-2": "npm:koa@^2.13.0",
     "koa-3": "npm:koa@^3.0.0",
-    "prettier": "^3.6.2",
+    "oxfmt": "^0.20.0",
+    "oxlint": "^1.35.0",
+    "oxlint-tsgolint": "^0.10.0",
+    "publint": "^0.3.16",
     "supertest": "^7.1.4",
+    "tsdown": "^0.18.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2",
     "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "helmet": "^6 || ^7 || ^8",
+    "koa": "^2 || ^3"
+  },
+  "engines": {
+    "node": ">= 18.0.0"
   }
 }
