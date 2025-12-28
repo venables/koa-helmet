@@ -14,7 +14,7 @@
   "license": "MIT",
   "author": "Matt Venables <matt@venabl.es>",
   "repository": {
-    "url": "https://github.com/venables/koa-helmet"
+    "url": "git+https://github.com/venables/koa-helmet.git"
   },
   "files": [
     "dist"
